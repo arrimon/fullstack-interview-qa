@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-app-bg: #0a0a0f;
+  --color-app-surface: #111118;
+  --color-app-card: #16161f;
+  --color-app-border: #1e1e2e;
+  --color-app-text: #e8e8f0;
+  --color-app-muted: #6b6b80;
+  --color-app-tag: #1e1e2e;
+  --color-laravel: #ff2d20;
+  --color-node: #68a063;
+  --color-next: #ffffff;
+  --color-react: #61dafb;
+  --color-general: #f59e0b;
+}
+
+:root {
+  color: var(--color-app-text);
+  background: var(--color-app-bg);
+  font-family: var(--font-display);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--color-app-bg);
+  color: var(--color-app-text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.hero-glow {
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(97, 218, 251, 0.07) 0%, transparent 70%);
+}
+
+.sticky-shell {
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.title-tight {
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 600px) {
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+}

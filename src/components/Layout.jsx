@@ -1,0 +1,55 @@
+import { Outlet } from 'react-router-dom'
+import { stackPills } from '../lib/topicMeta'
+import Legend from './Legend'
+import Modal from './Modal'
+import Navbar from './Navbar'
+import Pill from './Pill'
+import StatsBar from './StatsBar'
+
+function Layout() {
+  return (
+    <div className="min-h-screen bg-app-bg font-display text-app-text">
+      <header className="relative overflow-hidden border-b border-app-border px-6 pb-14 pt-[72px] text-center">
+        <div className="hero-glow pointer-events-none absolute inset-0" />
+        <div className="relative">
+          <div className="mb-[22px] inline-block rounded-full border border-[rgba(97,218,251,.2)] bg-[rgba(97,218,251,.08)] px-[14px] py-[5px] font-mono text-[11px] font-semibold uppercase tracking-[0.15em] text-react">
+            Interview Crack Guide &middot; 0&ndash;2 Years
+          </div>
+          <h1 className="title-tight mb-[14px] text-[clamp(28px,6vw,60px)] leading-[1.1] font-extrabold">
+            200 Topics Every
+            <br />
+            <span className="text-react">Full-Stack Dev</span> Must Know
+          </h1>
+          <p className="mx-auto mb-7 max-w-[520px] text-[15px] leading-[1.6] text-app-muted">
+            Laravel &middot; Node.js &middot; Next.js &middot; React &mdash; curated for freshers &
+            junior devs aiming to crack interviews.
+          </p>
+          <div className="flex flex-wrap justify-center gap-[10px]">
+            {stackPills.map((pill) => (
+              <Pill key={pill.key} className={pill.className}>
+                &#11041; {pill.label}
+              </Pill>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <StatsBar />
+      <Legend />
+      <Navbar />
+
+      <main className="mx-auto max-w-[1400px] px-5 py-8">
+        <Outlet />
+      </main>
+
+      <footer className="border-t border-app-border px-8 py-8 text-center font-mono text-[12px] text-app-muted">
+        200 topics &middot; Laravel &middot; Node &middot; Next &middot; React &middot; 0&ndash;2 yr
+        Interview Prep
+      </footer>
+
+      <Modal />
+    </div>
+  )
+}
+
+export default Layout
