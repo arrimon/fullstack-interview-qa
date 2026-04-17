@@ -36,6 +36,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -51,6 +52,12 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 #root {
@@ -74,6 +81,20 @@ select {
 
 .title-tight {
   letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @media (max-width: 600px) {

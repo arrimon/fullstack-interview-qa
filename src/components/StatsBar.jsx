@@ -6,7 +6,7 @@ function StatsBar() {
       {statItems.map((item, index) => (
         <div
           key={item.key}
-          className={`min-w-[120px] flex-1 px-6 py-[18px] text-center max-[600px]:min-w-[100px] ${
+          className={`min-w-[100px] flex-1 px-4 py-[18px] text-center sm:min-w-[120px] sm:px-6 ${
             index !== statItems.length - 1 ? 'border-r border-app-border' : ''
           }`}
         >

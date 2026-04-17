@@ -9,7 +9,7 @@ import StatsBar from './StatsBar'
 function Layout() {
   return (
     <div className="min-h-screen bg-app-bg font-display text-app-text">
-      <header className="relative overflow-hidden border-b border-app-border px-6 pb-14 pt-[72px] text-center">
+      <header className="relative overflow-hidden border-b border-app-border px-5 pb-14 pt-[64px] text-center sm:px-6 sm:pt-[72px]">
         <div className="hero-glow pointer-events-none absolute inset-0" />
         <div className="relative">
           <div className="mb-[22px] inline-block rounded-full border border-[rgba(97,218,251,.2)] bg-[rgba(97,218,251,.08)] px-[14px] py-[5px] font-mono text-[11px] font-semibold uppercase tracking-[0.15em] text-react">
@@ -38,11 +38,11 @@ function Layout() {
       <Legend />
       <Navbar />
 
-      <main className="mx-auto max-w-[1400px] px-5 py-8">
+      <main className="mx-auto w-full max-w-[1400px] px-4 py-6 sm:px-5 sm:py-8">
         <Outlet />
       </main>
 
-      <footer className="border-t border-app-border px-8 py-8 text-center font-mono text-[12px] text-app-muted">
+      <footer className="border-t border-app-border px-5 py-8 text-center font-mono text-[12px] text-app-muted sm:px-8">
         200 topics &middot; Laravel &middot; Node &middot; Next &middot; React &middot; 0&ndash;2 yr
         Interview Prep
       </footer>
