@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { categoryMeta } from '../lib/topicMeta'
+import { totalTopics } from '../lib/topicStats'
 
 const navOrder = ['all', 'laravel', 'node', 'next', 'react', 'general']
 
@@ -8,6 +9,7 @@ function Navbar() {
     <nav className="sticky-shell sticky top-0 z-10 flex flex-wrap justify-center gap-2 border-b border-app-border px-4 py-4 sm:px-6 sm:py-5">
       {navOrder.map((key) => {
         const item = categoryMeta[key]
+        const label = key === 'all' ? `${item.label} ${totalTopics}` : item.label
 
         return (
           <NavLink
@@ -20,7 +22,7 @@ function Navbar() {
               }`
             }
           >
-            {item.label}
+            {label}
           </NavLink>
         )
       })}

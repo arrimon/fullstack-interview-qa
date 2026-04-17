@@ -9,6 +9,7 @@ const TopicsNode = lazy(() => import('./features/Node/pages/TopicsNode'))
 const TopicsNext = lazy(() => import('./features/Next/pages/TopicsNext'))
 const TopicsReact = lazy(() => import('./features/React/pages/TopicsReact'))
 const TopicsGeneral = lazy(() => import('./features/General/pages/TopicsGeneral'))
+const TopicDetail = lazy(() => import('./pages/TopicDetail'))
 
 function PageLoader() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/next" element={<TopicsNext />} />
               <Route path="/react" element={<TopicsReact />} />
               <Route path="/general" element={<TopicsGeneral />} />
+              <Route path="/topic/:tag/:slug" element={<TopicDetail />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
           </Routes>

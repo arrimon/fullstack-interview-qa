@@ -1,4 +1,6 @@
-export const generalSections = [
+import { enrichSectionsWithTopicDetails } from '../../../lib/topicDetails'
+
+const generalSectionsSource = [
   {
     category: 'General CS & DevOps Essentials',
     color: 'var(--color-general)',
@@ -42,3 +44,5 @@ export const generalSections = [
     ],
   },
 ]
+
+export const generalSections = enrichSectionsWithTopicDetails(generalSectionsSource)

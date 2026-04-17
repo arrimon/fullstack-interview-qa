@@ -1,4 +1,5 @@
 import { useTopicModal } from '../context/TopicModalContext'
+import { buildTopicPath } from '../lib/topicDetails'
 import useInView from '../hooks/useInView'
 
 const tagClasses = {
@@ -12,31 +13,43 @@ const tagClasses = {
 function TopicCard({ topic, tag, number }) {
   const { openTopic } = useTopicModal()
   const { elementRef, isInView } = useInView({ rootMargin: '0px 0px -5% 0px', threshold: 0.18 })
+  const topicPath = buildTopicPath(tag, topic.slug)
 
   return (
-    <button
+    <article
       ref={elementRef}
-      type="button"
-      onClick={() => openTopic(topic)}
+      onClick={() => openTopic({ ...topic, tag, path: topicPath })}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault()
+          openTopic({ ...topic, tag, path: topicPath })
+        }
+      }}
+      role="button"
+      tabIndex={0}
       className={`flex min-h-[88px] cursor-pointer items-start gap-3 rounded-[10px] border border-app-border bg-app-card px-4 py-[14px] text-left transition-[opacity,transform,border-color,box-shadow,background-color] duration-[900ms] ease-[cubic-bezier(.22,1,.36,1)] ${
         isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
-      } hover:-translate-y-[2px] hover:border-[#2c2c3d] hover:bg-[#191924] hover:shadow-[0_18px_44px_rgba(0,0,0,.2)] active:scale-[0.995]`}
+      } hover:-translate-y-[2px] hover:border-[#2c2c3d] hover:bg-[#191924] hover:shadow-[0_18px_44px_rgba(0,0,0,.2)]`}
     >
-      <span className="mt-0.5 min-w-7 shrink-0 font-mono text-[10px] text-app-muted">
-        {String(number).padStart(3, '0')}
-      </span>
-      <div className="min-w-0 flex-1">
-        <div className="mb-[3px] text-[13.5px] leading-[1.35] font-semibold text-app-text">
-          {topic.name}
+      <div className="flex min-w-0 flex-1 items-start gap-3 text-left">
+        <span className="mt-0.5 min-w-7 shrink-0 font-mono text-[10px] text-app-muted">
+          {String(number).padStart(3, '0')}
+        </span>
+        <div className="min-w-0 flex-1">
+          <div className="mb-[3px] text-[13.5px] leading-[1.35] font-semibold text-app-text">
+            {topic.name}
+          </div>
+          <div className="font-mono text-[11.5px] leading-[1.45] text-app-muted">{topic.desc}</div>
         </div>
-        <div className="font-mono text-[11.5px] leading-[1.45] text-app-muted">{topic.desc}</div>
       </div>
-      <span
-        className={`mt-0.5 shrink-0 rounded px-[7px] py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-[0.06em] max-[420px]:hidden ${tagClasses[tag]}`}
-      >
-        {tag}
-      </span>
-    </button>
+      <div className="ml-2 flex shrink-0 flex-col items-end">
+        <span
+          className={`mt-0.5 shrink-0 rounded px-[7px] py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-[0.06em] max-[420px]:hidden ${tagClasses[tag]}`}
+        >
+          {tag}
+        </span>
+      </div>
+    </article>
   )
 }
 

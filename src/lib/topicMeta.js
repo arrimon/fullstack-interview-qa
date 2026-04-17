@@ -1,6 +1,6 @@
 export const categoryMeta = {
   all: {
-    label: 'All 200',
+    label: 'All',
     path: '/',
     accentText: 'var(--color-app-text)',
     activeClassName: 'text-app-text border-[#333340] bg-[#1e1e2e]',
@@ -21,7 +21,7 @@ export const categoryMeta = {
     label: 'Next.js',
     path: '/next',
     accentText: '#ddd',
-    activeClassName: 'text-[#ddd] border-[rgba(200,200,200,.3)] bg-[rgba(255,255,255,.05)]',
+    activeClassName: 'text-white border-[rgba(200,200,200,.3)] bg-[rgba(255,255,255,.05)]',
   },
   react: {
     label: 'React',
@@ -50,13 +50,4 @@ export const legendItems = [
   { key: 'next', label: 'Next.js', dot: '#bbb' },
   { key: 'react', label: 'React', dot: 'var(--color-react)' },
   { key: 'general', label: 'General / CS', dot: 'var(--color-general)' },
-]
-
-export const statItems = [
-  { key: 'laravel', label: 'Laravel', value: 45, color: 'var(--color-laravel)' },
-  { key: 'node', label: 'Node.js', value: 40, color: 'var(--color-node)' },
-  { key: 'next', label: 'Next.js', value: 25, color: '#ccc' },
-  { key: 'react', label: 'React', value: 45, color: 'var(--color-react)' },
-  { key: 'general', label: 'General', value: 35, color: 'var(--color-general)' },
-  { key: 'total', label: 'Total', value: 190, color: 'var(--color-app-text)' },
 ]

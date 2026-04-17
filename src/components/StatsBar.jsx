@@ -1,4 +1,15 @@
-import { statItems } from '../lib/topicMeta'
+import useCountUp from '../hooks/useCountUp'
+import { statItems } from '../lib/topicStats'
+
+function StatValue({ value, color }) {
+  const animatedValue = useCountUp(value)
+
+  return (
+    <div className="mb-1 text-[26px] leading-none font-extrabold" style={{ color }}>
+      {animatedValue}
+    </div>
+  )
+}
 
 function StatsBar() {
   return (
@@ -10,9 +21,7 @@ function StatsBar() {
             index !== statItems.length - 1 ? 'border-r border-app-border' : ''
           }`}
         >
-          <div className="mb-1 text-[26px] leading-none font-extrabold" style={{ color: item.color }}>
-            {item.value}
-          </div>
+          <StatValue value={item.value} color={item.color} />
           <div className="text-[11px] uppercase tracking-[0.06em] text-app-muted">{item.label}</div>
         </div>
       ))}

@@ -1,4 +1,6 @@
-export const nextSections = [
+import { enrichSectionsWithTopicDetails } from '../../../lib/topicDetails'
+
+const nextSectionsSource = [
   {
     category: 'Next.js - Routing & Rendering',
     color: '#bbb',
@@ -36,6 +38,18 @@ export const nextSections = [
       { name: 'Vercel Deployment', desc: 'Push to deploy, preview URLs, analytics' },
       { name: 'Edge Runtime vs Node Runtime', desc: 'Performance trade-offs, API support' },
       { name: 'Parallel & Intercepting Routes', desc: 'Advanced routing patterns in App Router' },
+      { name: 'Static Params', desc: 'generateStaticParams for dynamic SSG routes' },
+      { name: 'Draft Mode', desc: 'Preview unpublished CMS content in development or staging' },
+      { name: 'Route Handlers', desc: 'app/api with Request and Response helpers' },
+      { name: 'Cookies & Headers APIs', desc: 'Read request metadata in server components and handlers' },
+      { name: 'Cache Tags & Revalidation', desc: 'revalidateTag, revalidatePath, fine-grained cache control' },
+      { name: 'Streaming with Suspense', desc: 'Progressive rendering and partial UI delivery' },
+      { name: 'next/script', desc: 'Third-party script loading strategies and optimization' },
+      { name: 'Bundle Analysis', desc: 'Inspect client/server bundle size and reduce bloat' },
+      { name: 'SEO in Next.js', desc: 'Metadata, canonical URLs, structured data, sitemap' },
+      { name: 'CMS Integration', desc: 'Fetching content from headless CMS platforms like Sanity or Contentful' },
     ],
   },
 ]
+
+export const nextSections = enrichSectionsWithTopicDetails(nextSectionsSource)

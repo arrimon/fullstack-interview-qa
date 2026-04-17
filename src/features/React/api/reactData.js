@@ -1,4 +1,6 @@
-export const reactSections = [
+import { enrichSectionsWithTopicDetails } from '../../../lib/topicDetails'
+
+const reactSectionsSource = [
   {
     category: 'React - Core Concepts',
     color: 'var(--color-react)',
@@ -66,3 +68,5 @@ export const reactSections = [
     ],
   },
 ]
+
+export const reactSections = enrichSectionsWithTopicDetails(reactSectionsSource)

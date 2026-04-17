@@ -1,4 +1,6 @@
-export const laravelSections = [
+import { enrichSectionsWithTopicDetails } from '../../../lib/topicDetails'
+
+const laravelSectionsSource = [
   {
     category: 'Laravel - Core Fundamentals',
     color: 'var(--color-laravel)',
@@ -69,6 +71,8 @@ export const laravelSections = [
     ],
   },
 ]
+
+export const laravelSections = enrichSectionsWithTopicDetails(laravelSectionsSource)
 
 export const laravelSectionsByLevel = {
   fundamentals: laravelSections.find((section) => section.level === 'fundamentals'),

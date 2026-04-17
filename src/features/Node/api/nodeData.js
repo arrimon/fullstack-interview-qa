@@ -1,4 +1,6 @@
-export const nodeSections = [
+import { enrichSectionsWithTopicDetails } from '../../../lib/topicDetails'
+
+const nodeSectionsSource = [
   {
     category: 'Node.js - Core & Runtime',
     color: 'var(--color-node)',
@@ -61,3 +63,5 @@ export const nodeSections = [
     ],
   },
 ]
+
+export const nodeSections = enrichSectionsWithTopicDetails(nodeSectionsSource)

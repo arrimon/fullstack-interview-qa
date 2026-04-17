@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { stackPills } from '../lib/topicMeta'
+import { totalTopics } from '../lib/topicStats'
 import Legend from './Legend'
 import Modal from './Modal'
 import Navbar from './Navbar'
@@ -7,6 +8,8 @@ import Pill from './Pill'
 import StatsBar from './StatsBar'
 
 function Layout() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <div className="min-h-screen bg-app-bg font-display text-app-text">
       <header className="relative overflow-hidden border-b border-app-border px-5 pb-14 pt-[64px] text-center sm:px-6 sm:pt-[72px]">
@@ -16,7 +19,7 @@ function Layout() {
             Interview Crack Guide &middot; 0&ndash;2 Years
           </div>
           <h1 className="title-tight mb-[14px] text-[clamp(28px,6vw,60px)] leading-[1.1] font-extrabold">
-            200 Topics Every
+            {totalTopics} Topics Every
             <br />
             <span className="text-react">Full-Stack Dev</span> Must Know
           </h1>
@@ -43,8 +46,18 @@ function Layout() {
       </main>
 
       <footer className="border-t border-app-border px-5 py-8 text-center font-mono text-[12px] text-app-muted sm:px-8">
-        200 topics &middot; Laravel &middot; Node &middot; Next &middot; React &middot; 0&ndash;2 yr
-        Interview Prep
+        <p className="m-0">200 interview question for full stack developer.</p>
+        <p className="mt-3 mb-0">
+          Copyright &copy; {currentYear}{' '}
+          <a
+            href="https://arrimon-portfolio.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-react transition-colors duration-300 hover:text-app-text"
+          >
+            arrimon
+          </a>
+        </p>
       </footer>
 
       <Modal />
