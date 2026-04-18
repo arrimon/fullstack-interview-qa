@@ -1,6 +1,14 @@
 import { allSections } from './allTopics'
 
 const statConfig = [
+  { key: 'javascript', label: 'JavaScript', color: 'var(--color-javascript)' },
+  { key: 'typescript', label: 'TypeScript', color: 'var(--color-typescript)' },
+  { key: 'html-css', label: 'HTML & CSS', color: 'var(--color-html-css)' },
+  { key: 'browser', label: 'Browser', color: 'var(--color-browser)' },
+  { key: 'performance', label: 'Performance', color: 'var(--color-performance)' },
+  { key: 'devtools', label: 'Dev Tools', color: 'var(--color-devtools)' },
+  { key: 'testing', label: 'Testing', color: 'var(--color-testing)' },
+  { key: 'api', label: 'API & Data', color: 'var(--color-api)' },
   { key: 'laravel', label: 'Laravel', color: 'var(--color-laravel)' },
   { key: 'node', label: 'Node.js', color: 'var(--color-node)' },
   { key: 'next', label: 'Next.js', color: '#ccc' },
@@ -21,6 +29,14 @@ export const topicCounts = allSections.reduce(
     return counts
   },
   {
+    javascript: 0,
+    typescript: 0,
+    'html-css': 0,
+    browser: 0,
+    performance: 0,
+    devtools: 0,
+    testing: 0,
+    api: 0,
     laravel: 0,
     node: 0,
     next: 0,

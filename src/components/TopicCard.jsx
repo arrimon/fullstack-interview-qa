@@ -1,8 +1,17 @@
-import { useTopicModal } from '../context/TopicModalContext'
 import { buildTopicPath } from '../lib/topicDetails'
+import { categoryMeta } from '../lib/topicMeta'
+import { useTopicModal } from '../hooks/useTopicModal'
 import useInView from '../hooks/useInView'
 
 const tagClasses = {
+  javascript: 'bg-[rgba(239,159,39,.12)] text-[#ef9f27]',
+  typescript: 'bg-[rgba(55,138,221,.12)] text-[#378add]',
+  'html-css': 'bg-[rgba(216,90,48,.12)] text-[#d85a30]',
+  browser: 'bg-[rgba(29,158,117,.12)] text-[#1d9e75]',
+  performance: 'bg-[rgba(127,119,221,.12)] text-[#7f77dd]',
+  devtools: 'bg-[rgba(136,135,128,.12)] text-[#a4a39c]',
+  testing: 'bg-[rgba(212,83,126,.12)] text-[#d4537e]',
+  api: 'bg-[rgba(99,153,34,.12)] text-[#84b940]',
   laravel: 'bg-[rgba(255,45,32,.12)] text-laravel',
   node: 'bg-[rgba(104,160,99,.12)] text-node',
   next: 'bg-[rgba(255,255,255,.07)] text-[#bbb]',
@@ -14,6 +23,7 @@ function TopicCard({ topic, tag, number }) {
   const { openTopic } = useTopicModal()
   const { elementRef, isInView } = useInView({ rootMargin: '0px 0px -5% 0px', threshold: 0.18 })
   const topicPath = buildTopicPath(tag, topic.slug)
+  const tagLabel = categoryMeta[tag]?.label ?? tag
 
   return (
     <article
@@ -46,7 +56,7 @@ function TopicCard({ topic, tag, number }) {
         <span
           className={`mt-0.5 shrink-0 rounded px-[7px] py-0.5 font-mono text-[9.5px] font-semibold uppercase tracking-[0.06em] max-[420px]:hidden ${tagClasses[tag]}`}
         >
-          {tag}
+          {tagLabel}
         </span>
       </div>
     </article>

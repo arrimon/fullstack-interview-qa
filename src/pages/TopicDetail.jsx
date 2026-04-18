@@ -41,7 +41,7 @@ function TopicDetail() {
   }
 
   const { section, topic } = match
-  const paragraphs = topic.answer ? topic.answer.split('\n\n') : ['Detailed explanation coming soon.']
+  const paragraphs = (topic.answer || topic.desc).split('\n\n')
 
   return (
     <section className="mx-auto max-w-4xl">
@@ -53,14 +53,16 @@ function TopicDetail() {
         &larr; Back
       </button>
 
-      <div className="rounded-[24px] border border-app-border bg-app-card p-5 shadow-[0_20px_60px_rgba(0,0,0,.28)] sm:p-7">
+      <div className="rounded-md border border-app-border bg-app-card p-5 shadow-[0_20px_60px_rgba(0,0,0,.28)] sm:p-7">
         <div className="mb-6 flex flex-wrap items-center gap-3">
           <span className="rounded-full border border-app-border bg-app-surface px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-app-muted">
             {section.category}
           </span>
-          <span className="rounded-full border border-app-border bg-app-surface px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-app-muted">
-            {topic.language}
-          </span>
+          {topic.code ? (
+            <span className="rounded-full border border-app-border bg-app-surface px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-app-muted">
+              {topic.language}
+            </span>
+          ) : null}
         </div>
 
         <h1 className="mb-3 text-[clamp(30px,4vw,42px)] leading-[1.1] font-extrabold text-app-text">
@@ -78,16 +80,18 @@ function TopicDetail() {
           ))}
         </div>
 
-        <div className="overflow-hidden rounded-[20px] border border-app-border bg-[#101018]">
-          <div className="border-b border-app-border px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-app-muted">
-            Code Example
+        {topic.code ? (
+          <div className="overflow-hidden rounded-[20px] border border-app-border bg-[#101018]">
+            <div className="border-b border-app-border px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-app-muted">
+              Code Example
+            </div>
+            <pre className="topic-code-block overflow-x-auto p-4 text-[13px] leading-6 sm:p-5">
+              <code ref={codeRef} className={`language-${topic.language}`}>
+                {topic.code}
+              </code>
+            </pre>
           </div>
-          <pre className="topic-code-block overflow-x-auto p-4 text-[13px] leading-6 sm:p-5">
-            <code ref={codeRef} className={`language-${topic.language}`}>
-              {topic.code || '// Code example coming soon'}
-            </code>
-          </pre>
-        </div>
+        ) : null}
       </div>
     </section>
   )

@@ -16,6 +16,14 @@
   --color-next: #ffffff;
   --color-react: #61dafb;
   --color-general: #f59e0b;
+  --color-javascript: #ef9f27;
+  --color-typescript: #378add;
+  --color-html-css: #d85a30;
+  --color-browser: #1d9e75;
+  --color-performance: #7f77dd;
+  --color-devtools: #888780;
+  --color-testing: #d4537e;
+  --color-api: #639922;
 }
 
 :root {

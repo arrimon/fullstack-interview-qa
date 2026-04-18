@@ -1,16 +1,17 @@
 import TopicSection from './TopicSection'
 
 function TopicsBoard({ sections }) {
-  let currentIndex = 1
+  const indexedSections = sections.map((section, index) => ({
+    section,
+    startIndex:
+      sections.slice(0, index).reduce((count, item) => count + item.topics.length, 0) + 1,
+  }))
 
   return (
     <div className="w-full">
-      {sections.map((section) => {
-        const startIndex = currentIndex
-        currentIndex += section.topics.length
-
-        return <TopicSection key={section.category} section={section} startIndex={startIndex} />
-      })}
+      {indexedSections.map(({ section, startIndex }) => (
+        <TopicSection key={section.category} section={section} startIndex={startIndex} />
+      ))}
     </div>
   )
 }

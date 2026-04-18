@@ -9,6 +9,14 @@ const TopicsNode = lazy(() => import('./features/Node/pages/TopicsNode'))
 const TopicsNext = lazy(() => import('./features/Next/pages/TopicsNext'))
 const TopicsReact = lazy(() => import('./features/React/pages/TopicsReact'))
 const TopicsGeneral = lazy(() => import('./features/General/pages/TopicsGeneral'))
+const TopicsJavaScript = lazy(() => import('./features/JavaScript/pages/TopicsJavaScript'))
+const TopicsTypeScript = lazy(() => import('./features/TypeScript/pages/TopicsTypeScript'))
+const TopicsHtmlCss = lazy(() => import('./features/HtmlCss/pages/TopicsHtmlCss'))
+const TopicsBrowser = lazy(() => import('./features/Browser/pages/TopicsBrowser'))
+const TopicsPerformance = lazy(() => import('./features/Performance/pages/TopicsPerformance'))
+const TopicsDevTools = lazy(() => import('./features/DevTools/pages/TopicsDevTools'))
+const TopicsTesting = lazy(() => import('./features/Testing/pages/TopicsTesting'))
+const TopicsApi = lazy(() => import('./features/Api/pages/TopicsApi'))
 const TopicDetail = lazy(() => import('./pages/TopicDetail'))
 
 function PageLoader() {
@@ -34,6 +42,14 @@ function App() {
               <Route path="/next" element={<TopicsNext />} />
               <Route path="/react" element={<TopicsReact />} />
               <Route path="/general" element={<TopicsGeneral />} />
+              <Route path="/javascript" element={<TopicsJavaScript />} />
+              <Route path="/typescript" element={<TopicsTypeScript />} />
+              <Route path="/html-css" element={<TopicsHtmlCss />} />
+              <Route path="/browser" element={<TopicsBrowser />} />
+              <Route path="/performance" element={<TopicsPerformance />} />
+              <Route path="/devtools" element={<TopicsDevTools />} />
+              <Route path="/testing" element={<TopicsTesting />} />
+              <Route path="/api" element={<TopicsApi />} />
               <Route path="/topic/:tag/:slug" element={<TopicDetail />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>

@@ -5,13 +5,13 @@ function useCountUp(endValue, duration = 1200) {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let animationFrameId = 0
 
     if (mediaQuery.matches) {
-      setValue(endValue)
+      animationFrameId = window.requestAnimationFrame(() => setValue(endValue))
       return undefined
     }
 
-    let animationFrameId = 0
     const startTime = performance.now()
 
     const tick = (currentTime) => {

@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState } from 'react'
+import { createContext, useMemo, useState } from 'react'
 
 const TopicModalContext = createContext(null)
 
@@ -16,13 +16,4 @@ export function TopicModalProvider({ children }) {
 
   return <TopicModalContext.Provider value={value}>{children}</TopicModalContext.Provider>
 }
-
-export function useTopicModal() {
-  const context = useContext(TopicModalContext)
-
-  if (!context) {
-    throw new Error('useTopicModal must be used inside TopicModalProvider')
-  }
-
-  return context
-}
+export { TopicModalContext }

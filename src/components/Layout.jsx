@@ -24,8 +24,8 @@ function Layout() {
             <span className="text-react">Full-Stack Dev</span> Must Know
           </h1>
           <p className="mx-auto mb-7 max-w-[520px] text-[15px] leading-[1.6] text-app-muted">
-            Laravel &middot; Node.js &middot; Next.js &middot; React &mdash; curated for freshers &
-            junior devs aiming to crack interviews.
+            JavaScript, TypeScript, HTML/CSS, Browser APIs, React, Next.js, Node.js, Laravel,
+            testing, performance, API, and core engineering topics in one responsive guide.
           </p>
           <div className="flex flex-wrap justify-center gap-[10px]">
             {stackPills.map((pill) => (
@@ -46,7 +46,7 @@ function Layout() {
       </main>
 
       <footer className="border-t border-app-border px-5 py-8 text-center font-mono text-[12px] text-app-muted sm:px-8">
-        <p className="m-0">200 interview question for full stack developer.</p>
+        <p className="m-0">{totalTopics} interview topics for full-stack developers.</p>
         <p className="mt-3 mb-0">
           Copyright &copy; {currentYear}{' '}
           <a
